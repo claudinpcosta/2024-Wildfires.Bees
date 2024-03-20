@@ -10,5 +10,5 @@ We performed an experiment to determine how maternal and sibling brood care diff
 _see [Seki.dataset.csv](Data/Seki.dataset.csv) for all data and see [Site.Information.csv](Data/Site.Information.csv) for site information._
 
 ### Analysis
-_see [BSexpScript.R]() for codes, and we can find the input in the folder [Data](Data)._
+_see [Burned.PilotProject.Script.R](Burned.PilotProject.Script.R) for codes, and we can find the input in the folder [Data](Data)._
 
