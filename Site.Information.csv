@@ -1,0 +1,9 @@
+Site,Group,Vegetation,Type,Elevation,Abundance.Bumblebee,Abundance.Honeybee,Flora.Cover.Percentual,Flora.Cover.Rate,Floral.Patch.Quality,Richness,Flora.Cover.Percentual.VisitBB,Flora.Cover.Rate.BB,Floral.Patch.Quality.BB,Richness.Visit.BB
+5,A- Meadow,Meadow,Burned,~ 6000 ft,100,3,100,6,High intensity,5,81,5,High intensity,4
+11,B - Forest,Forest,Burned,~ 6500 ft,100,0,82,5,High intensity,7,18,3,Medium intensity,3
+18,C - Forest,Forest,Burned,~ 7000 ft,37,0,75,4,Medium intensity,10,33,3,Medium intensity,6
+9,D - Meadow,Meadow,Burned,~ 7500 ft,50,3,70,4,Medium intensity,9,65,4,Medium intensity,7
+14,A- Meadow,Meadow,Unburned,~ 7700 ft,11,30,85,5,High intensity,6,80,5,High intensity,7
+17,B - Forest,Forest,Unburned,~ 6500 ft,25,1,66,3,Medium intensity,8,61,4,Medium intensity,5
+2,C - Forest,Forest,Unburned,~ 7000 ft,100,2,80,5,High intensity,6,80,5,High intensity,6
+6,D - Meadow,Meadow,Unburned,~ 7500 ft,50,50,87,5,High intensity,4,87,5,High intensity,4
