@@ -7,6 +7,7 @@
 We performed an experiment to determine how maternal and sibling brood care differentially impact the developmental fate of workers in the bumble bee *Bombus impatiens*, using the maternal manipulation hypothesis as a guiding framework.
 
 ### Sample Information
+_see [complete.xlsx]() for all data and see [complete.xlsx]() for site information._
 
 
 ### Analysis
