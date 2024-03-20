@@ -1,6 +1,6 @@
 # 2024-Wildfires.Bees
 
-## Contains all analyses performed on datasets for how wildfires impacts on bumble bee populations in Sierra Nevada, California.
+## Contains all analyses performed on datasets regarding how wildfires impact bumble bee populations in Sierra Nevada, California.
 
 ### Synopsis
 
