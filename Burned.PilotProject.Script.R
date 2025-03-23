@@ -33,9 +33,12 @@ tail(completeDataset1)
 summary(completeDataset1)
 
 ####Worker body size by wings########
+completeDataset1$Wing.mean <- as.numeric(as.character(completeDataset1$Wing.mean))
 
 #Graph
-bw <- ggplot(completeDataset, aes(reorder(Site,Wing.mean), y=Wing.mean, fill = Type, color = Type)) +
+myColors <- c("#70517F", "#2E532C")
+
+bw <- ggplot(completeDataset1, aes(reorder(Site,Wing.mean), y=Wing.mean, fill = Type, color = Type)) +
   geom_boxplot(alpha = 0.5) +
   facet_wrap(~Pair, scale="free")
 bw <- bw + labs(x = " ", y = "Marginal cell length (cm)")
@@ -46,12 +49,14 @@ bw <- bw + theme(axis.line = element_line(color='black'),
 bw <- bw + ggtitle("Worker body size per habitat")
 bw <- bw + geom_jitter(shape=16, position=position_jitter(0.2)) +
   guides(colour = guide_legend(reverse=T), fill = guide_legend(reverse=T))
-bw <- bw + scale_fill_grey(start = 0.6, end = 0.2) +
-  scale_color_grey(start = 0.6, end = 0.2) 
+# bw <- bw + scale_fill_grey(start = 0.2, end = 0.6) +
+#   scale_color_grey(start = 0.2, end = 0.6)
+bw <- bw + scale_fill_manual(values = myColors) + scale_color_manual(values = myColors) 
 bw <- bw + theme(axis.text=element_text(size=8), axis.title=element_text(size=8))
 bw
 
-bwa <- ggplot(completeDataset, aes(reorder(Type,Wing.mean), y=Wing.mean, fill = Type, color = Type)) +
+
+bwa <- ggplot(completeDataset1, aes(reorder(Type,Wing.mean), y=Wing.mean, fill = Type, color = Type)) +
   geom_boxplot(alpha = 0.5)
 bwa <- bwa + labs(x = " ", y = "Marginal cell length (cm)")
 bwa <- bwa + theme_bw()
@@ -59,8 +64,9 @@ bwa <- bwa + theme(legend.position = "none")
 bwa <- bwa + theme(axis.text=element_text(size=8), axis.title=element_text(size=8))
 bwa <- bwa + ggtitle("Worker body size")
 bwa <- bwa + geom_jitter(shape=16, position=position_jitter(0.2))
-bwa <- bwa + scale_fill_grey(start = 0.6, end = 0.2) +
-  scale_color_grey(start = 0.6, end = 0.2) 
+# bwa <- bwa + scale_fill_grey(start = 0.2, end = 0.6) +
+#   scale_color_grey(start = 0.2, end = 0.6) 
+bwa <- bwa + scale_fill_manual(values = myColors) + scale_color_manual(values = myColors) 
 bwa
 
 
@@ -100,9 +106,12 @@ summary(glht(BW2, linfct=mcp(Type="Tukey")))
 
 
 ####Worker body mass########
+completeDataset2$Weight.mg. <- as.numeric(as.character(completeDataset$Weight.mg.))
+completeDataset2 <- subset(completeDataset2, !is.na(Weight.mg.))
+
 
 #Graph
-bm <- ggplot(completeDataset, aes(reorder(Site,Wing.mean), y=Weight.mg., fill = Type, color = Type)) +
+bm <- ggplot(completeDataset2, aes(reorder(Site,Weight.mg.), y=Weight.mg., fill = Type, color = Type)) +
   geom_boxplot(alpha = 0.5) +
   facet_wrap(~Pair, scale="free")
 bm <- bm + labs(x = "Site", y = "Weight (mg)")
@@ -113,11 +122,12 @@ bm <- bm + theme(axis.line = element_line(color='black'),
 bm <- bm + ggtitle("Body mass")
 bm <- bm + geom_jitter(shape=16, position=position_jitter(0.2)) +
   guides(colour = guide_legend(reverse=T), fill = guide_legend(reverse=T))
-bm <- bm + scale_fill_grey(start = 0.6, end = 0.2) +
-  scale_color_grey(start = 0.6, end = 0.2) 
+# bm <- bm + scale_fill_grey(start = 0.2, end = 0.6) +
+#   scale_color_grey(start = 0.2, end = 0.6) 
+bm <- bm + scale_fill_manual(values = myColors) + scale_color_manual(values = myColors) 
 bm
 
-bma <- ggplot(completeDataset, aes(reorder(Type,Wing.mean), y=Weight.mg., fill = Type, color = Type)) +
+bma <- ggplot(completeDataset2, aes(reorder(Type,Weight.mg.), y=Weight.mg., fill = Type, color = Type)) +
   geom_boxplot(alpha = 0.5)
 bma <- bma + labs(x = " ", y = "Weight (mg)")
 bma <- bma + theme_bw()
@@ -125,8 +135,9 @@ bma <- bma + theme(legend.position = "none")
 bma <- bma + ggtitle("Worker body mass")
 bma <- bma + theme(axis.text=element_text(size=8), axis.title=element_text(size=8))
 bma <- bma + geom_jitter(shape=16, position=position_jitter(0.2))
-bma <- bma + scale_fill_grey(start = 0.6, end = 0.2) +
-  scale_color_grey(start = 0.6, end = 0.2) 
+# bma <- bma + scale_fill_grey(start = 0.2, end = 0.6) +
+#   scale_color_grey(start = 0.2, end = 0.6) 
+bma <- bma + scale_fill_manual(values = myColors) + scale_color_manual(values = myColors) 
 bma
 
 
@@ -209,10 +220,10 @@ AB <- ggplot(site.Info, aes(reorder(Type,Abundance.Bumblebee), y=Abundance.Bumbl
   geom_boxplot(alpha = 0.5)
 AB <- AB + labs(x = " ", y = "Bumble bee abundance")
 AB <- AB + theme_bw()
+AB <- AB + theme(text = element_text(size = 18))
 AB <- AB + theme(legend.position = "none")
-AB <- AB + ggtitle("Bumble bee abundance")
-AB <- AB + scale_fill_grey(start = 0.6, end = 0.2) +
-  scale_color_grey(start = 0.6, end = 0.2) 
+AB <- AB + scale_fill_grey(start = 0.2, end = 0.6) +
+  scale_color_grey(start = 0.2, end = 0.6) 
 AB <- AB + stat_summary(fun.y=mean, geom="point", shape = 17, size = 3) 
 AB
 
@@ -221,7 +232,7 @@ AP <- ggplot(site.Info, aes(reorder(Type,Abundance.Honeybee), y=Abundance.Honeyb
 AP <- AP + labs(x = " ", y = "Honey bee abundance")
 AP <- AP + theme_bw()
 AP <- AP + theme(legend.position = "none")
-AP <- AP + ggtitle("Honey bee abundance")
+AP <- AP + theme(text = element_text(size = 15))
 AP <- AP + scale_fill_grey(start = 0.6, end = 0.2) +
   scale_color_grey(start = 0.6, end = 0.2) 
 AP <- AP + stat_summary(fun.y=mean, geom="point", shape = 17, size = 3) 
@@ -294,10 +305,11 @@ FC <- ggplot(site.Info, aes(reorder(Type,Flora.Cover.Percentual), y=Flora.Cover.
   geom_boxplot(alpha = 0.5)
 FC <- FC + labs(x = " ", y = "Relative percentage ")
 FC <- FC + theme_bw()
+FC <- FC + theme(text = element_text(size = 18))
 FC <- FC + theme(legend.position = "none")
 FC <- FC + ggtitle("Proportion of floral cover per transect")
-FC <- FC + scale_fill_grey(start = 0.6, end = 0.2) +
-  scale_color_grey(start = 0.6, end = 0.2) 
+FC <- FC + scale_fill_grey(start = 0.2, end = 0.6) +
+  scale_color_grey(start = 0.2, end = 0.6) 
 FC <- FC + stat_summary(fun.y=mean, geom="point", shape = 17, size = 3)
 FC
 
@@ -305,10 +317,11 @@ RC <- ggplot(site.Info, aes(reorder(Type,Richness), y=Richness, fill = Type, col
   geom_boxplot(alpha = 0.5)
 RC <- RC + labs(x = " ", y = "Floral richness")
 RC <- RC + theme_bw()
+RC <- RC + theme(text = element_text(size = 18))
 RC <- RC + theme(legend.position = "none")
 RC <- RC + ggtitle("Floral richness per transect")
-RC <- RC + scale_fill_grey(start = 0.6, end = 0.2) +
-  scale_color_grey(start = 0.6, end = 0.2) 
+RC <- RC + scale_fill_grey(start = 0.2, end = 0.6) +
+  scale_color_grey(start = 0.2, end = 0.6) 
 RC <- RC + stat_summary(fun.y=mean, geom="point", shape = 17, size = 3)
 RC
 
